@@ -1,0 +1,35 @@
+@import url("fonts/fonts.css");
+body {
+	font-family: Ubuntu, SANS-SERIF;
+	background-color: #ddd;
+}
+.center {
+	width: 100%;
+	text-align: center;
+}
+a {
+	color: #4343ff;
+	text-decoration: none;
+}
+a:hover {
+	color: #0000e8;
+	text-decoration: underline;
+}
+a:active {
+	color: #000094;
+}
+@media only screen and (prefers-color-scheme: dark) {
+	body {
+		background-color: #222;
+		color: #fff;
+	}
+	a {
+		color: #7979ff;
+	}
+	a:hover {
+		color: #a4a4ff;
+	}
+	a:active {
+		color: #0000bf;
+	}
+}
