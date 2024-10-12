@@ -60,8 +60,17 @@ height.value *= scaleY;
 ctx.scale(scaleX, scaleY);
 
 //init dial and clock textures
-const dial = loadImageToArray(document.getElementById("dial"));
-const clock = loadImageToArray(document.getElementById("clockTex"));
+var dial;
+var clock;
+window.onload = (event) => {
+    dial = loadImageToArray(document.getElementById("dial"));
+    clock = loadImageToArray(document.getElementById("clockTex"));
+
+    setInterval(() => {
+        // debug();
+        tickClock();
+    }, 50);
+}
 
 //get seconds since midnight, influenced by current set timezone
 function getSeconds() {
@@ -153,11 +162,4 @@ function debug() {
     date.setSeconds(tick);
     const timeString = date.toISOString().substring(11, 19);
     document.getElementById("debug").innerText = "tick: " + tick + " real time: " + timeString;
-}
-
-window.onload = (event) => {
-    setInterval(() => {
-        // debug();
-        tickClock();
-    }, 50);
 }
