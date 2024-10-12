@@ -60,17 +60,8 @@ height.value *= scaleY;
 ctx.scale(scaleX, scaleY);
 
 //init dial and clock textures
-var dial;
-var clock;
-window.onload = (event) => {
-    dial = loadImageToArray(document.getElementById("dial"));
-    clock = loadImageToArray(document.getElementById("clockTex"));
-
-    setInterval(() => {
-        // debug();
-        tickClock();
-    }, 50);
-}
+const dial = loadImageToArray(document.getElementById("dial"));
+const clock = loadImageToArray(document.getElementById("clockTex"));
 
 //get seconds since midnight, influenced by current set timezone
 function getSeconds() {
@@ -101,6 +92,8 @@ var rota = 0;
 
 //ported from beta 1.2 may 17th 2011 build
 function tickClock() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     const time = getClockTime(1);
     const rott = -time * Math.PI * 2.0;
 
@@ -128,8 +121,8 @@ function tickClock() {
     const sin = Math.sin(rot);
     const cos = Math.cos(rot);
 
-    for (x = 0; x < 16; x++)
-    for (y = 0; y < 16; y++) {
+    for (y = 0; y < 16; y++)
+    for (x = 0; x < 16; x++) {
         const i = x + y * 16;
 
         var r = clock[i * 4 + 0];
@@ -163,3 +156,8 @@ function debug() {
     const timeString = date.toISOString().substring(11, 19);
     document.getElementById("debug").innerText = "tick: " + tick + " real time: " + timeString;
 }
+
+setInterval(() => {
+    // debug();
+    tickClock();
+}, 50);
