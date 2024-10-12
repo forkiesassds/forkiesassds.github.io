@@ -92,8 +92,6 @@ var rota = 0;
 
 //ported from beta 1.2 may 17th 2011 build
 function tickClock() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     const time = getClockTime(1);
     const rott = -time * Math.PI * 2.0;
 
@@ -121,8 +119,8 @@ function tickClock() {
     const sin = Math.sin(rot);
     const cos = Math.cos(rot);
 
-    for (y = 0; y < 16; y++)
-    for (x = 0; x < 16; x++) {
+    for (x = 0; x < 16; x++)
+    for (y = 0; y < 16; y++) {
         const i = x + y * 16;
 
         var r = clock[i * 4 + 0];
