@@ -155,7 +155,9 @@ function debug() {
     document.getElementById("debug").innerText = "tick: " + tick + " real time: " + timeString;
 }
 
-setInterval(() => {
-    // debug();
-    tickClock();
-}, 50);
+window.onload = (event) => {
+    setInterval(() => {
+        // debug();
+        tickClock();
+    }, 50);
+}
