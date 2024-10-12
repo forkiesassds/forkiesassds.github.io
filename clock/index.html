@@ -2,30 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Minecraft clock</title>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/timezone.js"></script>
+    <title>Minecraft Clock</title>
     <style>
       @media (prefers-color-scheme: dark) {
         body {
           background-color: black;
           color: white;
         }
+        
+        #root {
+          display:flex;
+          flex-direction:column;
+          align-items: center;
+        }
       }
     </style>
   </head>
   <body>
-    <img id="dial" src="dial.png" hidden />
-    <img id="clockTex" src="clock.png" hidden />
-
-    <canvas id="clock" width="16" height="16">
-      <p>Your browser does not support canvas.</p>
-    </canvas>
+    <div id="root">
+      <div>
+        <canvas width="16" height="16" id="clockCanvas"></canvas>
+      </div>
+      <br>
+      <select id="tzSelect"></select>
+      <p>If the clock appears to be broken, this is because of your browser's privacy settings.</p>
+    </div>
     <!--<p id="debug"></p>-->
-    <br/>
-    <select id="timezone"></select>
-    <p>If the clock appears to be broken, this is because of your browser's privacy settings.</p>
-    <script src="clock.js"></script>
+    <script src="./clock.ts" type="module"></script>
   </body>
 </html>
