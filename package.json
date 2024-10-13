@@ -1,11 +1,13 @@
 {
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
-    "dev": "vite",
-    "preview": "vite preview"
+    "build": "exec eleventy",
+    "dev": "exec eleventy --serve",
+    "preview": "exec eleventy --serve --incremental"
   },
   "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-vite": "5.0.0-alpha.5",
     "@types/node": "^22.7.5",
     "dayjs": "^1.11.13",
     "typescript": "^5.6.3",
