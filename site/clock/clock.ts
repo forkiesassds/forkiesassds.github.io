@@ -140,6 +140,8 @@ function tickClock() {
     if (ctx == null)
         throw new Error("canvas context is null");
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
     const time = getClockTime(1);
     const rott = -time * Math.PI * 2.0;
 
