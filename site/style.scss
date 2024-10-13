@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: monospace;
+}
+
+a {
+    color: rgb(148, 108, 166);
+    transition: color 0.2s;
+
+    &:hover {
+        color: rgb(202, 169, 217);
+    }
+
+    &:active {
+        color: rgb(86, 56, 99);
+    }
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr {
+    width: 100%;
+}

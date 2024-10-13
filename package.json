@@ -1,16 +1,21 @@
 {
   "type": "module",
   "scripts": {
-    "build": "exec eleventy",
-    "dev": "exec eleventy --serve",
-    "preview": "exec eleventy --serve --incremental"
+    "build": "NODE_OPTIONS='--experimental-require-module' exec eleventy",
+    "dev": "NODE_OPTIONS='--experimental-require-module' exec eleventy --serve --incremental"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-pug": "^1.0.0",
     "@11ty/eleventy-plugin-vite": "5.0.0-alpha.5",
     "@types/node": "^22.7.5",
     "dayjs": "^1.11.13",
+    "eleventy-plugin-purgecss": "^0.5.0",
+    "eleventy-sass": "^3.0.0-beta.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.8"
+  },
+  "devDependencies": {
+    "@sardine/eleventy-plugin-tinyhtml": "^0.2.0"
   }
 }

@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Minecraft Clock
+    link(rel="stylesheet" href="/style.css")
+  body
+    div(id="root")
+      div
+        canvas(width="16" height="16" id="clockCanvas")
+      br
+      select(id="tzSelect")
+      p If the clock appears to be broken, this is because of your browser's privacy settings.
+      //p(id="debug")
+    script(src="./clock.ts" type="module")
