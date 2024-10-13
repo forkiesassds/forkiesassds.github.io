@@ -197,15 +197,17 @@ function tickClock() {
     }
 }
 
-// function debug() {
-//     const tick = getSeconds();
-//     const date = new Date(0);
-//     date.setSeconds(tick);
-//     const timeString = date.toISOString().substring(11, 19);
-//     document.getElementById("debug").innerText = "tick: " + tick + " real time: " + timeString;
-// }
+function debug() {
+    const tick = getSeconds();
+    const date = new Date(0);
+    date.setSeconds(tick);
+    const timeString = date.toISOString().substring(11, 19);
+    document.getElementById("debug").innerText = "tick: " + tick + " real time: " + timeString;
+}
 
-setInterval(() => {
+function tick() {
     // debug();
     tickClock();
-}, 50);
+}
+
+setInterval(tick, 50);

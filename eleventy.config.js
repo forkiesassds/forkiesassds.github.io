@@ -10,12 +10,6 @@ export default function (eleventyConfig) {
         viteOptions: {
             build: {
                 target: "esnext",
-                rollupOptions: {
-                    input: {
-                        index: resolve(".", "siteindex.html"),
-                        clock: resolve(".", "/siteclock/index.html")
-                    },
-                },
             },
         },
     });
