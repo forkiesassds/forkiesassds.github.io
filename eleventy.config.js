@@ -6,6 +6,10 @@ import tinyHTML from "@sardine/eleventy-plugin-tinyhtml";
 import { resolve } from "node:path";
 
 export default function (eleventyConfig) {
+    eleventyConfig.setServerOptions({
+        showAllHosts: true
+    });
+
     eleventyConfig.setInputDirectory("site");
     eleventyConfig.addPassthroughCopy("site/**/*.ts");
     eleventyConfig.addPassthroughCopy("public/**/*.*");
