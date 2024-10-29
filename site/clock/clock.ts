@@ -1,16 +1,10 @@
 import * as lib from '../lib';
-import dayjs from "dayjs";
-import timezone from 'dayjs/plugin/timezone';
-import utc from 'dayjs/plugin/utc';
 
 // slightly janky ts bc I can't be bothered to try to fix this whole thing atm -Dexrn
 
 // constants (there are 2)
 const scaleX = 20;
 const scaleY = 20;
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
 
 // create root element
 const rootElement = document.createElement("div");
@@ -62,9 +56,7 @@ const clock = await lib.loadImageToArray(clockImage);
 
 //get seconds since midnight, influenced by current set timezone
 function getSeconds() {
-    const t = dayjs(Date.now());
-    const tz = t.tz(timeZone);
-    return tz.second() + (tz.minute() + tz.hour() * 60) * 60;
+    return new Date(new Date().toLocaleString('en-US', { timeZone })).getTime() / 1000 % 86400; 
 }
 
 function getClockTime(delta) {

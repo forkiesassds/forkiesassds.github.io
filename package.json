@@ -8,12 +8,11 @@
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-pug": "^1.0.0",
     "@11ty/eleventy-plugin-vite": "5.0.0-alpha.5",
-    "@types/node": "^22.7.5",
-    "dayjs": "^1.11.13",
+    "@types/node": "^22.8.2",
     "eleventy-plugin-purgecss": "^0.5.0",
-    "eleventy-sass": "^3.0.0-beta.0",
+    "eleventy-sass": "3.0.0-beta.0",
     "typescript": "^5.6.3",
-    "vite": "^5.4.8"
+    "vite": "^5.4.10"
   },
   "devDependencies": {
     "@sardine/eleventy-plugin-tinyhtml": "^0.2.0"
