@@ -6,16 +6,6 @@ import * as lib from '../lib';
 const scaleX = 20;
 const scaleY = 20;
 
-// create root element
-const rootElement = document.createElement("div");
-
-const dialImage = await lib.awaitImage("/assets/clock/dial.png", "dial");
-const clockImage = await lib.awaitImage("/assets/clock/clock.png", "clockTex");
-
-document.body.appendChild(rootElement);
-rootElement.appendChild(dialImage);
-rootElement.appendChild(clockImage);
-
 //get timezone
 let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -51,8 +41,8 @@ lib.scaleElement(canvas, scaleX, scaleY);
 ctx.scale(scaleX, scaleY);
 
 //init dial and clock textures
-const dial = await lib.loadImageToArray(dialImage);
-const clock = await lib.loadImageToArray(clockImage);
+const dial = await lib.loadImageToArray("/assets/clock/dial.png");
+const clock = await lib.loadImageToArray("/assets/clock/clock.png");
 
 //get seconds since midnight, influenced by current set timezone
 function getSeconds() {
@@ -146,7 +136,7 @@ function debug() {
     if (debug == null) {
         debug = document.createElement("p");
         debug.id = "debug";
-        rootElement.appendChild(debug);
+        document.body.appendChild(debug);
     }
 
     const tick = getSeconds();

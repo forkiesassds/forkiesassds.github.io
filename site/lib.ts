@@ -1,41 +1,16 @@
-export const awaitImage = async (path: string, id: string): Promise<HTMLImageElement> => {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.id = id;
-        img.src = path;
-        img.style.display = "none";
-        img.onload = () => {
-            resolve(img);
-        }
-        img.onerror = e => {
-            throw new Error(e.toString());
-        }
+import UPNG from 'upng-js';
+
+export async function loadImageToArray(path: string): Promise<Uint8ClampedArray> {
+    return new Promise(resolve => {
+        fetch(path)
+            .then(response => response.arrayBuffer())
+            .then(buffer => {
+                const pngImg = UPNG.decode(buffer)
+                const rgbaArr = new Uint8ClampedArray(UPNG.toRGBA8(pngImg)[0])
+
+                resolve(rgbaArr);
+            });
     })
-}
-
-export async function loadImageToArray(element) {
-    const width = element.width;
-    const height = element.height;
-
-    //set up canvas to copy data to
-    let tCanvas = document.createElement("canvas");
-    tCanvas.width = width;
-    tCanvas.height = height;
-
-    //copy image data to canvas
-    const tCtx = tCanvas.getContext("2d");
-
-    if (tCtx == null)
-        throw new Error("tCanvas context is null");
-
-    tCtx.drawImage(element, 0, 0);
-
-    //get the array of the image data
-    const array = tCtx.getImageData(0, 0, width, height).data;
-
-    //dispose of the canvas and return the array.
-    tCanvas.remove();
-    return array;
 }
 
 export function scaleElement(element, xS, yS) {
