@@ -13,7 +13,7 @@
     "eleventy-sass": "3.0.0-beta.0",
     "typescript": "^5.6.3",
     "upng-js": "^2.1.0",
-    "vite": "^5.4.10"
+    "vite": "^5.4.12"
   },
   "devDependencies": {
     "@sardine/eleventy-plugin-tinyhtml": "^0.2.0"
